@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import 'style.css'
+import React, {useEffect, useState} from 'react'
+import './style.css'
 
 
 function DragAndDropPage () {
@@ -12,11 +12,12 @@ function DragAndDropPage () {
 //т.к. будем карточки менять местами, нужно запоминать карточку создадим новое состояние
   const [currentCard, setCurrentCard] = useState(null)
 
-  function dragEndHandler() {
+  function dragStartHandler(card) {
     setCurrentCard(card)
+    console.log(card)
   }
 
-  function dragEndHandler() {
+  function dragEndHandler(e) {
     e.target.style.background = 'white'
   }
 
@@ -59,12 +60,13 @@ function DragAndDropPage () {
 //для реализации drag and drop нужно реализовать несколько слушателей событий
 //для каждого из этих слушателей необходимо создать функцию, которая будет вызываться.
 //далее создаем выше каждую из этих функций
-          onDragStart={(e) => dragStartHandler(e, card)} //срабатывает в тот момент, когда мы взяли карточку
+          onDragStart={() => dragStartHandler( card)} //срабатывает в тот момент, когда мы взяли карточку
           onDragLeave={(e) => dragEndHandler(e)} //срабатывает, если мы вышли за пределы другой карточки
           onDragEnd={(e) => dragEndHandler(e)} //если мы отпустили перемещение
           onDragOver={(e) => dragOvertHandler(e)} //если мы находимся над каким-то другим объектом
           onDrop={(e) => dragHandler(e, card)} //если мы отпустили карточку и рассчитываем на то, что что должно произойти связанное с эти действие
-          draggable={true}>
+          draggable={true}
+          >
           {card.text}
         </div>
       )}
