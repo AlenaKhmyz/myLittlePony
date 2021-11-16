@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import 'style.css'
 
 
 function DragAndDropPage () {
@@ -10,7 +11,19 @@ function DragAndDropPage () {
   ])
 
   return (
-    
+    <div className="cardList">
+      {cardList.map( card=> 
+        <div className="card"
+          onDragStart={}
+          onDragLeave={}
+          onDragEnd={}
+          onDragOver={}
+          onDrop={}
+          draggable={true}>
+          {card.text}
+        </div>
+      )}
+    </div>
   )
 }
 
