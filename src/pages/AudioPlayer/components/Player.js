@@ -1,6 +1,7 @@
 import React from "react";
 import PlayerDetails from "./PlayerDetails";
 import PlayerControls from "./PlayerControls";
+import '../style.css'
 
 function Player(props) {
   return (

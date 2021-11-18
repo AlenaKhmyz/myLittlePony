@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import Player from './components/Player'
+import Player from './components/Player';
+import './style.css'
 
 function AudioPlayerPage() {
   const [songs, setSongs] = useState([
@@ -33,7 +34,7 @@ function AudioPlayerPage() {
   const [currentSongIndex, setCurrentSongIndex] = useState(0)
   const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1)
   return(
-    <div>
+    <div className='container'>
       <Player 
         song={songs[currentSongIndex]} 
         nextSong={songs[nextSongIndex]}
