@@ -34,7 +34,10 @@ function AudioPlayerPage() {
   const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1)
   return(
     <div>
-      <Player song={songs[currentSongIndex]} nextSong={songs[nextSongIndex]}/>
+      <Player 
+        song={songs[currentSongIndex]} 
+        nextSong={songs[nextSongIndex]}
+      />
 
     </div>
   )
