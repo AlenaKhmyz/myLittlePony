@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useState, useRef, useEffect, forwardRef} from "react";
 import PlayerDetails from "./PlayerDetails";
 import PlayerControls from "./PlayerControls";
 import '../style.css'
@@ -15,9 +15,37 @@ function Player(props) {
     }
   })
 
+  const skipSong = (forwards = true) => {
+    if(forwards) {
+      props.setCurrentSongIndex(() => {
+        let temp = props.currentSongIndex
+        temp++
+
+        if (temp > props.songs.length - 1) {
+          temp = 0
+        }
+
+        return temp
+      })
+    } else {
+
+      props.setCurrentSongIndex(() => {
+        let temp = props.currentSongIndex
+        temp--
+
+        if (temp < 0) {
+          temp = props.songs.length - 1
+        }
+
+        return temp
+      })
+
+    }
+  }
+
   return (
     <div className="c-player">
-      <audio ref={audioEl}></audio>
+      <audio src={props.songs[propscurrentIndex].src} ref={audioEl}></audio>
       <h4>Playing </h4>
       <PlayerDetails song={props.song}/>
       <PlayerControls />
