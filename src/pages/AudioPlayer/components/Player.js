@@ -9,9 +9,9 @@ function Player(props) {
 
   useEffect(() => {
     if (isPlaying) {
-      audioEl.current.play()
+      audioEl.current?.play()
     } else {
-      audioEl.current.pause() 
+      audioEl.current?.pause()
     }
   })
 
@@ -45,7 +45,7 @@ function Player(props) {
 
   return (
     <div className="c-player">
-      <audio src={props.songs[props.currentIndex]} ref={audioEl}></audio>
+      <audio src={props.songs[props.currentSongIndex].src} ref={audioEl}></audio>
       <h4>Playing </h4>
       <PlayerDetails 
         song={props.songs[props.currentSongIndex]}

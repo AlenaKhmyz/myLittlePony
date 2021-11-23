@@ -1,32 +1,41 @@
 import React, {useState, useEffect} from 'react';
 import Player from './components/Player';
 import './style.css'
+import adept from './img/adept.jpg'
+import lights from './music/adept-lights.mp3'
+import bos from './img/bos.jpg'
+import infest from './music/Breakdown Of Sanity - Infest.mp3'
+import slipknot from './img/slipknot.png'
+import devil from './music/Slipknot - The Devil In I.mp3'
+import whileSheSleeps from './img/while_she_sleeps.jpg'
+import  sleepsSociety from './music/while-she-sleeps_-_sleeps-society.mp3'
+
 
 function AudioPlayerPage() {
   const [songs] = useState([
     {
       title: "Lights",
       artist: "Adept",
-      img_src: "/img/adept.jpg",
-      src: "/music/adept-lights.mp3"
+      img_src: adept,
+      src: lights
     },
     {
       title: "Infest",
       artist: "Breakdown of sanity",
-      img_src: "/img/bos.jpg",
-      src: "/music/Breakdown Of Sanity - Infest.mp3"
+      img_src: bos,
+      src: infest
     },
     {
       title: "The devil in I",
       artist: "Slipknot",
-      img_src: "/img/slipknot.png",
-      src: "/music/Slipknot - The Devil In I.mp3"
+      img_src: slipknot,
+      src: devil
     },
     {
       title: "Sleeps souciety",
       artist: "While she sleeps",
-      img_src: "/img/while_she_sleeps.jpg",
-      src: "/music/while-she-sleeps_-_sleeps-society.mp3"
+      img_src: whileSheSleeps,
+      src: sleepsSociety
     }
 
   ])

@@ -10,9 +10,9 @@ function PlayerControls(props) {
       <button className="skip-btn" onClick={() => props.SkipSong(false)}>
         <FontAwesomeIcon icon={faBackward} />
       </button>
-      <buttton className="play-btn" onClick={() => props.setIsPlaying(!props.isPlaying)}>
+      <button className="play-btn" onClick={() => props.setIsPlaying(!props.isPlaying)}>
         <FontAwesomeIcon icon={props.isPlaying ? faPause : faPlay} />
-      </buttton>
+      </button>
       <button className="skip-btn">
          <FontAwesomeIcon icon={faForward} onClick={() => props.SkipSong(false)}/>
       </button>
