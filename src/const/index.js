@@ -1,7 +1,8 @@
 export const ROUTES = {
   MAIN: '/',
   DRAGANDDROP: '/draganddrop',
-  AUDIOPLAYER: '/audioplayer'
+  AUDIOPLAYER: '/audioplayer',
+  BREAKOUT: '/breakout'
   
   
 }
