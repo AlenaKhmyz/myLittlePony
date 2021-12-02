@@ -1,9 +1,13 @@
 import React  from 'react';
+import Board from './Board';
+import './styles.css'
 
 function BreakoutPage() {
 
   return (
-   <div></div>
+   <div>
+     <Board />
+   </div>
   )
 }
 

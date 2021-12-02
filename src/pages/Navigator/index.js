@@ -19,7 +19,7 @@ function Navigator() {
       <Routes>
         <Route path={ROUTES.DRAGANDDROP} element={<DragAndDropPage />} />
         <Route path={ROUTES.AUDIOPLAYER} element={<AudioPlayerPage />} />
-        <Route path={ROUTES.BREAKOUT} element={<Breakout />} />
+        <Route path={ROUTES.BREAKOUT} element={<BreakoutPage />} />
         <Route path={ROUTES.MAIN} element={<MainPage />} />
       </Routes>
     </BrowserRouter>
