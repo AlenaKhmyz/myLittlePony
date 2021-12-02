@@ -10,10 +10,16 @@ export default function Board() {
     const render = () => {
       const canvas = canvasRef.current
       const ctx = canvas.getContext('2d')
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.beginPath();
-      ctx.arc(x, 50, 50, 0, 2 * Math.PI, false);
+      ctx.fillStyle = 'red'
+      ctx.arc(x, 50, 20, 0, 2 * Math.PI);
+      ctx.strokeStyle="black"
+      ctx.strokeWidth = 4
+      ctx.fill()
       ctx.stroke();
-      x++
+      x += 8
       requestAnimationFrame(render)
     }
     
