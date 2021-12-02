@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react'
+import {BallMovement} from './BallMovement'
+import data from './data'
 
-
-let x = 0
 export default function Board() {
 
   const canvasRef = useRef(null)
@@ -11,15 +11,19 @@ export default function Board() {
       const canvas = canvasRef.current
       const ctx = canvas.getContext('2d')
 
+      let { ballObj } = data
+
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      ctx.beginPath();
-      ctx.fillStyle = 'red'
-      ctx.arc(x, 50, 20, 0, 2 * Math.PI);
-      ctx.strokeStyle="black"
-      ctx.strokeWidth = 4
-      ctx.fill()
-      ctx.stroke();
-      x += 8
+
+      BallMovement(ctx, ballObj)
+
+      if(ballObj.y - ballObj.rad <= 0 || ballObj.y + ballObj.rad >= canvas.height) {
+        ballObj.dy *= -1
+      }
+
+      if(ballObj.x + ballObj.rad >= canvas.width || ballObj.x - ballObj.rad <= 0) {
+         ballObj.dx *= -1
+      }
       requestAnimationFrame(render)
     }
     
