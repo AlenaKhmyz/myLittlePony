@@ -5,6 +5,7 @@ import Paddle from './Paddle'
 import data from './data'
 import Brick from './Brick'
 import  BrickCollision from './util/BrickCollision'
+import PaddleHit from './util/PaddleHit'
 
 let bricks = []
 
@@ -18,6 +19,9 @@ export default function Board() {
     const render = () => {
       const canvas = canvasRef.current
       const ctx = canvas.getContext('2d')
+
+      paddleProps.y = canvas.height - 30
+
       let newBrickSet = Brick (2, bricks, canvas, brickObj)
 //AssignBricks
       if (newBrickSet && newBrickSet.length > 0) {
@@ -53,6 +57,9 @@ export default function Board() {
 
       Paddle(ctx, canvas, paddleProps)
 
+
+//Paddle + Ball Collision
+      PaddleHit(ballObj, paddleProps)
       requestAnimationFrame(render)
     }
     
