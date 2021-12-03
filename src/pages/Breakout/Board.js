@@ -17,10 +17,16 @@ export default function Board() {
     const render = () => {
       const canvas = canvasRef.current
       const ctx = canvas.getContext('2d')
-
+      let newBrickSet = Brick (2, bricks, canvas, brickObj)
 //AssignBricks
-      Brick(2, bricks, canvas, brickObj)
+      if (newBrickSet && newBrickSet.length > 0) {
+        bricks = newBrickSet
+      }
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+//Display bricks
+      bricks.map((brick) => {
+        return brick.draw(ctx)
+      })
 //Handle Ball Movement
       BallMovement(ctx, ballObj)
 //Ball and Wall Collision
