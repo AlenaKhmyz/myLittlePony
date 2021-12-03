@@ -3,8 +3,11 @@ import { BallMovement } from './BallMovement'
 import WallCollision from './util/WallCollision'
 import Paddle from './Paddle'
 import data from './data'
+import Brick from './Brick'
 
-let { ballObj, paddleProps } = data
+let bricks = []
+
+let { ballObj, paddleProps, brickObj } = data
 
 export default function Board() {
 
@@ -15,6 +18,8 @@ export default function Board() {
       const canvas = canvasRef.current
       const ctx = canvas.getContext('2d')
 
+//AssignBricks
+      Brick(2, bricks, canvas, brickObj)
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 //Handle Ball Movement
       BallMovement(ctx, ballObj)
