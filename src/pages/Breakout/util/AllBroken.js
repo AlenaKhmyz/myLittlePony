@@ -1,7 +1,8 @@
 import React from 'react'
 import data from '../data'
+import ResetBall from './ResetBall'
 export default function AllBroken(bricks, player, canvas, ballObj) {
-  let {brickObj} = data
+  let {brickObj, paddleProps} = data
   
   let total = 0 
   for (let i = 0; i < bricks.length; i++) {
@@ -10,9 +11,8 @@ export default function AllBroken(bricks, player, canvas, ballObj) {
     }
   }
   if (total === bricks.length) {
-    alert('all broke')
     player.level++
-    ballObj.y = canvas.height - 20
+    ResetBall(paddleProps, canvas, ballObj)
     brickObj.y = 50
   }
 }

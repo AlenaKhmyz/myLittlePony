@@ -9,15 +9,14 @@ export default  {
   },
   brickObj: {
     x: 0.5,
-    y:50,
-    width: 800 / 10 - 1,
+    y: 50,
     height: 20,
     density: 2,
     colors: ["blue", "lightblue"]
   },
   player: {
     name: 'Dalan',
-    lives: 5,
+    lives: 2,
     score: 0,
     level: 1,
   },
