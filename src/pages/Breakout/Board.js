@@ -7,6 +7,7 @@ import Brick from './Brick'
 import  BrickCollision from './util/BrickCollision'
 import PaddleHit from './util/PaddleHit'
 import PlayerStats from './PlayerStats'
+import AllBroken from './util/AllBroken'
 
 let bricks = []
 
@@ -38,8 +39,11 @@ export default function Board() {
       })
 //Handle Ball Movement
       BallMovement(ctx, ballObj)
+//Check all broken
+      AllBroken(bricks, player, canvas, ballObj)
+
 //Ball and Wall Collision
-      WallCollision(ballObj, canvas, player)
+      WallCollision(ballObj, canvas, player, paddleProps)
 
 //Brick Collision
       let brickCollision
