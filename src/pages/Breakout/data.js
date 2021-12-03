@@ -2,9 +2,9 @@ export default  {
   ballObj: {
     x: 20,
     y: 200,
-    dx: 20,
-    dy: 10,
-    rad: 20,
+    dx: 5,
+    dy: 5,
+    rad: 10,
     speed: 10,
   },
   brickObj: {
