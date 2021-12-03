@@ -4,6 +4,7 @@ import WallCollision from './util/WallCollision'
 import Paddle from './Paddle'
 import data from './data'
 import Brick from './Brick'
+import  BrickCollision from './util/BrickCollision'
 
 let bricks = []
 
@@ -31,6 +32,24 @@ export default function Board() {
       BallMovement(ctx, ballObj)
 //Ball and Wall Collision
       WallCollision(ballObj, canvas)
+
+//Brick Collision
+      let brickCollision
+
+      for(let i = 0; i < bricks.length; i++) {
+         brickCollision = BrickCollision(ballObj, bricks[i])
+        if( brickCollision.hit && !bricks[i].broke) {
+
+          if( brickCollision.axis === 'X') {
+            ballObj.dx *= -1
+            bricks[i].broke = true
+          } else if ( brickCollision.axis === "Y") {
+            ballObj.dy *= -1
+            bricks[i].broke = true
+          }
+         
+        }
+      }
 
       Paddle(ctx, canvas, paddleProps)
 
