@@ -39,7 +39,7 @@ export default function Board() {
 //Handle Ball Movement
       BallMovement(ctx, ballObj)
 //Ball and Wall Collision
-      WallCollision(ballObj, canvas)
+      WallCollision(ballObj, canvas, player)
 
 //Brick Collision
       let brickCollision
@@ -55,7 +55,7 @@ export default function Board() {
             ballObj.dy *= -1
             bricks[i].broke = true
           }
-         
+          player.score += 10
         }
       }
 
