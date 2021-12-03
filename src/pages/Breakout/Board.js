@@ -1,5 +1,7 @@
 import React, {useRef, useEffect} from 'react'
-import {BallMovement} from './BallMovement'
+import { BallMovement } from './BallMovement'
+import WallCollision from './util/WallCollision'
+import Paddle from './Paddle'
 import data from './data'
 
 export default function Board() {
@@ -11,19 +13,16 @@ export default function Board() {
       const canvas = canvasRef.current
       const ctx = canvas.getContext('2d')
 
-      let { ballObj } = data
+      let { ballObj, paddleProps } = data
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-
+//Handle Ball Movement
       BallMovement(ctx, ballObj)
+//Ball and Wall Collision
+      WallCollision(ballObj, canvas)
 
-      if(ballObj.y - ballObj.rad <= 0 || ballObj.y + ballObj.rad >= canvas.height) {
-        ballObj.dy *= -1
-      }
+      Paddle(ctx, canvas, paddleProps)
 
-      if(ballObj.x + ballObj.rad >= canvas.width || ballObj.x - ballObj.rad <= 0) {
-         ballObj.dx *= -1
-      }
       requestAnimationFrame(render)
     }
     

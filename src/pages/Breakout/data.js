@@ -20,5 +20,11 @@ export default  {
     lives: 5,
     score: 0,
     level: 1,
+  },
+  paddleProps: {
+    height: 20,
+    width: 100,
+    x: 100,
+    color: 'orange',
   }
 }
