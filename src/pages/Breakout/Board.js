@@ -6,10 +6,11 @@ import data from './data'
 import Brick from './Brick'
 import  BrickCollision from './util/BrickCollision'
 import PaddleHit from './util/PaddleHit'
+import PlayerStats from './PlayerStats'
 
 let bricks = []
 
-let { ballObj, paddleProps, brickObj } = data
+let { ballObj, paddleProps, brickObj, player } = data
 
 export default function Board() {
 
@@ -27,7 +28,10 @@ export default function Board() {
       if (newBrickSet && newBrickSet.length > 0) {
         bricks = newBrickSet
       }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      PlayerStats(ctx, player, canvas)
 //Display bricks
       bricks.map((brick) => {
         return brick.draw(ctx)
